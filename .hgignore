@@ -1,0 +1,6 @@
+glob:.classpath
+glob:.project
+glob:.settings/
+glob:target/
+glob:.idea/
+glob:*.iml
