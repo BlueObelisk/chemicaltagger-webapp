@@ -68,7 +68,7 @@ public class WebdemoApplication extends Application {
     }
 
     public TemplateRepresentation getTemplateRepresentation(String name, Map<String, ?> model, MediaType mediaType) throws IOException {
-    	Template template = freemarker.getTemplate(name);
+    	Template template = freemarker.getTemplate(name, "UTF-8");
         return new TemplateRepresentation(template, model, mediaType);
     }
 
