@@ -30,6 +30,11 @@ font-size: 12pt;
   background-color: #333366;
 }
 
+.ApparatusAction{
+  background-color:blue; 
+  color:white;
+}
+
 .Add{
   background-color:#6666CC; 
   color:white;
