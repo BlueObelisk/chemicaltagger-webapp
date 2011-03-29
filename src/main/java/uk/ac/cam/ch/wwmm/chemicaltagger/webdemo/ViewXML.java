@@ -22,9 +22,6 @@ public class ViewXML extends ServerResource {
 		String xml = "<doc>Empty Document</doc>";
 		if (form != null)
 			xml = form.getFirstValue("xml");
-
-		
-		System.out.println("**********" + xml);
 		return new StringRepresentation(xml, MediaType.APPLICATION_XML);
 
 	}
