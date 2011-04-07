@@ -1,28 +1,22 @@
 package uk.ac.cam.ch.wwmm.chemicaltagger.webdemo;
 
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import org.apache.commons.io.FileUtils;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.commons.io.IOUtils;
 import org.restlet.Application;
-import org.restlet.Component;
 import org.restlet.Restlet;
 import org.restlet.data.LocalReference;
 import org.restlet.data.MediaType;
-import org.restlet.data.Protocol;
-import org.restlet.data.Reference;
 import org.restlet.ext.freemarker.TemplateRepresentation;
 import org.restlet.resource.Directory;
 import org.restlet.routing.Router;
+
 import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistrySentenceParser;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
 
 /**
  * @author sea36
@@ -56,7 +50,7 @@ public class WebdemoApplication extends Application {
     public void start() throws Exception {
         super.start();
         // Do init
-        ChemistryPOSTagger.getInstance().runTaggers("");
+        ChemistryPOSTagger.getDefaultInstance().runTaggers("");
         ChemistrySentenceParser chemParser = new ChemistrySentenceParser(IOUtils.toInputStream(""));
         chemParser.parseTags();
         chemParser.makeXMLDocument();

@@ -1,13 +1,13 @@
 package uk.ac.cam.ch.wwmm.chemicaltagger.webdemo;
 
+import java.io.IOException;
+
 import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.representation.Representation;
 import org.restlet.representation.StringRepresentation;
 import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
-
-import java.io.IOException;
 
 public class ViewXML extends ServerResource {
 

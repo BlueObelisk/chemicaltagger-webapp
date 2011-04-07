@@ -1,12 +1,13 @@
 package uk.ac.cam.ch.wwmm.chemicaltagger.webdemo;
 
-import nu.xom.Document;
-import nu.xom.Element;
-import org.apache.commons.lang.StringUtils;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+
+import nu.xom.Document;
+import nu.xom.Element;
+
+import org.apache.commons.lang.StringUtils;
 
 public class XMLtoHTML {
 

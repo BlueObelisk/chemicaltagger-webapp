@@ -1,10 +1,9 @@
 package uk.ac.cam.ch.wwmm.chemicaltagger.webdemo;
 
-import org.restlet.Component;
-import org.restlet.Context;
-import org.restlet.data.Protocol;
-
 import java.io.IOException;
+
+import org.restlet.Component;
+import org.restlet.data.Protocol;
 
 /**
  * @author Sam Adams

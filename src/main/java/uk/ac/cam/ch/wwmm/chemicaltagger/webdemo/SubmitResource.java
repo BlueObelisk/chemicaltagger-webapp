@@ -1,17 +1,14 @@
 package uk.ac.cam.ch.wwmm.chemicaltagger.webdemo;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 import nu.xom.Document;
-import nu.xom.Serializer;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
 import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.representation.Representation;
@@ -35,19 +32,14 @@ public class SubmitResource extends ServerResource {
         String body = form.getFirstValue("body");
         WebdemoApplication webDemo = (WebdemoApplication) getApplication();
 
-        POSContainer container = ChemistryPOSTagger.getInstance().runTaggers(body);
+        POSContainer container = ChemistryPOSTagger.getDefaultInstance().runTaggers(body);
         InputStream taggedStream = IOUtils.toInputStream(container.getTokenTagTupleAsString(), "UTF-8");
         ChemistrySentenceParser parser = new ChemistrySentenceParser(taggedStream);
         parser.parseTags();
         Document doc = parser.makeXMLDocument();
         Map<String,Object> model = new HashMap<String, Object>();
         XMLtoHTML xmltoHTML = new XMLtoHTML();
-        xmltoHTML.convert(doc);
-       
-//        ByteArrayOutputStream bytestream = new ByteArrayOutputStream();
-//    	Serializer serializer = new Serializer(bytestream, "UTF-8");
-//		serializer.write(doc);
-		
+        xmltoHTML.convert(doc);		
         String xmlDocument = StringEscapeUtils.escapeHtml(doc.toXML());
         model.put("xmlContent",xmlDocument);
         model.put("taggedText",xmltoHTML.getTaggedText());
