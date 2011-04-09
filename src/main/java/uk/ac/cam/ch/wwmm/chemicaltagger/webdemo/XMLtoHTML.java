@@ -1,11 +1,14 @@
 package uk.ac.cam.ch.wwmm.chemicaltagger.webdemo;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 import nu.xom.Document;
 import nu.xom.Element;
+import nu.xom.Nodes;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -60,11 +63,18 @@ public class XMLtoHTML {
 					stringValue.append(makeSpanBegin(sub));
 
 					if (sub.getChildCount() > 0) {
-						stringValue.append(getHTMLBody(sub, Delimiter)+ Delimiter);
+						if (sub.getLocalName().equals("MOLECULE"))
+							stringValue.append(getHTMLBody(sub, Delimiter)+ "</a>"+Delimiter);
+						else 	stringValue.append(getHTMLBody(sub, Delimiter)+ Delimiter);
 					} else if (hasMoreChildren(sub)) {
+						if (sub.getLocalName().equals("MOLECULE"))
+							stringValue.append(getHTMLBody(sub, Delimiter)+ "</a>"+Delimiter);
+						else 	
 						stringValue.append(getHTMLBody(sub, Delimiter)+Delimiter);
 					} else {
+							
 						stringValue.append(sub.getValue() + Delimiter);
+						
 					}
 				}
 			}
@@ -79,6 +89,7 @@ public class XMLtoHTML {
 	private String makeSpanBegin(Element xmlTag) {
 		StringBuilder spanStart = new StringBuilder();
 		String name = xmlTag.getLocalName();
+		String ahrefString = "";
 		if (name.contains("Action")) {
 			name = xmlTag.getAttributeValue("type");
 			actionCheckSet.add(name);
@@ -87,16 +98,33 @@ public class XMLtoHTML {
 			name = "Other";
 			if (StringUtils.isNotEmpty(xmlTag.getAttributeValue("role"))) name =  xmlTag.getAttributeValue("role");
 			moleculeCheckSet.add(name);
+			try {
+				ahrefString = "<a href='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'"+"class='screenshot' rel='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'>";
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		else if (name.startsWith("Temp") ||name.startsWith("Time") || name.startsWith("Atmosphere"))
 			conditionCheckSet.add(name);
 		else if (name.contains("Phrase")) phraseCheckSet.add(name);
-		spanStart.append(SPAN_BEGIN + "'"+name + "'>");
+		spanStart.append(SPAN_BEGIN + "'"+name + "'>"+ahrefString);
 
 		return spanStart.toString();
 	}
 
+
+
+	private String getOscarCM(Element xmlTag) throws UnsupportedEncodingException {
+		String oscarCM="";
+		Nodes nodes = xmlTag.query(".//OSCAR-CM");
+		for (int i = 0; i < nodes.size(); i++) {
+			oscarCM = nodes.get(i).getValue()+" ";
+		}
+		
+		return URLEncoder.encode(oscarCM.trim(),"UTF-8");
+	}
 
 
 	private HashMap<String, Set<String>> getCheckBoxContent() {
