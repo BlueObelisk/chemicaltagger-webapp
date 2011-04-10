@@ -9,7 +9,6 @@ import java.util.Set;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Nodes;
-
 import org.apache.commons.lang.StringUtils;
 
 public class XMLtoHTML {
@@ -38,6 +37,7 @@ public class XMLtoHTML {
 		
 		taggedText = SPAN_BEGIN + "'Document'>" + getHTMLBody(doc.getRootElement(), SPAN_END
 				+ SPACE_DELIMITER) + SPAN_END;
+
         checkBoxes = getCheckBoxContent();
 		
 
