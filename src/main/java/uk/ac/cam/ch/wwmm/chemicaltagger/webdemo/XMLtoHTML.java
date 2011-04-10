@@ -99,7 +99,9 @@ public class XMLtoHTML {
 			if (StringUtils.isNotEmpty(xmlTag.getAttributeValue("role"))) name =  xmlTag.getAttributeValue("role");
 			moleculeCheckSet.add(name);
 			try {
-				ahrefString = "<a href='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'"+"class='screenshot' rel='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'>";
+//				ahrefString = "<a href='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'"+"class='screenshot' rel='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'>";
+				ahrefString = "<a href='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'>";
+			
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -8,7 +8,9 @@
 	   <meta http-equiv='Content-type' content='text/html;charset=UTF-8'/>
 		      <script type='text/javascript' src='res/jquery-latest.js'></script>
 		      <script type='text/javascript' src='res/functions.js'></script>
-	   <title>ChemicalTagger Demonstration</title>
+		      <script type='text/javascript' src='res/imgpreview.0.23.js'></script>
+		      
+		<title>ChemicalTagger Demonstration</title>
 	   <link rel='stylesheet' type='text/css' href='res/style-extract.css'/>
 
    </head>
