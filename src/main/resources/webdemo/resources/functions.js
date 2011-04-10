@@ -1,7 +1,10 @@
 $(document).ready(function() {
-    
-    document.getElementsByName("Actions")[0].checked = true;
+	$('a').imgPreview({
+	     containerID: 'imgPreviewWithStyles'
+		});
+	document.getElementsByName("Actions")[0].checked = true;
     checkedAll($("#ActionsForm"),true);
+    
     });
 
 function checkedAll(id,checked) {
@@ -26,3 +29,4 @@ function checkedAll(id,checked) {
 }
 );
  }
+	
