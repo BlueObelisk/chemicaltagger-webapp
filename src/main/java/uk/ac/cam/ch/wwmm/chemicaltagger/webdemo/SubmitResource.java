@@ -9,6 +9,7 @@ import nu.xom.Document;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringEscapeUtils;
+import org.jsoup.Jsoup;
 import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.representation.Representation;
@@ -42,9 +43,8 @@ public class SubmitResource extends ServerResource {
         xmltoHTML.convert(doc);		
         String xmlDocument = StringEscapeUtils.escapeHtml(doc.toXML());
         model.put("xmlContent",xmlDocument);
-        model.put("taggedText",xmltoHTML.getTaggedText());
-        model.put("checkBoxes", xmltoHTML.getCheckBoxes());
-        
+        model.put("taggedText",Jsoup.parseBodyFragment(xmltoHTML.getTaggedText()).toString());
+        model.put("checkBoxes", xmltoHTML.getCheckBoxes());     
         return webDemo.getTemplateRepresentation("tagged.ftl", model, MediaType.TEXT_HTML);
         
     }

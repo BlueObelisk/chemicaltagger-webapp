@@ -39,6 +39,7 @@ public class WebdemoApplication extends Application {
 
 		Router router = new Router(getContext());
         router.attach("/", DefaultResource.class);
+        router.attach("/index.html", DefaultResource.class);
         router.attach("/submit", SubmitResource.class);
         router.attach("/viewXML", ViewXML.class);
         router.attach("/res", dir);
