@@ -24,6 +24,7 @@ public class XMLtoHTML {
 	public Set<String> phraseCheckSet;
 	public Set<String> conditionCheckSet;
 	public Set<String> moleculeCheckSet;
+	public Set<String> oscarOntCheckSet;
 	public String taggedText;
 	public HashMap<String, Set<String>> checkBoxes;
 	
@@ -32,6 +33,7 @@ public class XMLtoHTML {
 		phraseCheckSet = new HashSet<String>();
 		conditionCheckSet = new HashSet<String>();
 		moleculeCheckSet = new HashSet<String>();
+		oscarOntCheckSet = new HashSet<String>();
 		
 		taggedText = new String();
 		
@@ -94,12 +96,15 @@ public class XMLtoHTML {
 			name = xmlTag.getAttributeValue("type");
 			actionCheckSet.add(name);
 		}
+		if (name.contains("OSCARONT")) {
+			name = "Oscar";
+			oscarOntCheckSet.add(name);
+		}
 		if (name.contains("MOLECULE")) {
 			name = "Other";
 			if (StringUtils.isNotEmpty(xmlTag.getAttributeValue("role"))) name =  xmlTag.getAttributeValue("role");
 			moleculeCheckSet.add(name);
 			try {
-//				ahrefString = "<a href='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'"+"class='screenshot' rel='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'>";
 				ahrefString = "<a href='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'>";
 			
 			} catch (UnsupportedEncodingException e) {
@@ -122,7 +127,7 @@ public class XMLtoHTML {
 		String oscarCM="";
 		Nodes nodes = xmlTag.query(".//OSCAR-CM");
 		for (int i = 0; i < nodes.size(); i++) {
-			oscarCM = nodes.get(i).getValue()+" ";
+			oscarCM += nodes.get(i).getValue()+" ";
 		}
 		
 		return URLEncoder.encode(oscarCM.trim(),"UTF-8");
@@ -142,6 +147,7 @@ public class XMLtoHTML {
 		
 		if (phraseCheckSet.size()> 0) checkboxHashMap.put("Phrases", phraseCheckSet);
 		
+		if (oscarOntCheckSet.size()> 0) checkboxHashMap.put("Ontology_Terms", oscarOntCheckSet);
 		return checkboxHashMap;
 	}
 
