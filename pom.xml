@@ -41,7 +41,7 @@
     <dependencies>
         <!-- UCC projects -->
         <dependency>
-            <groupId>chemicalTagger</groupId>
+            <groupId>uk.ac.cam.ch</groupId>
             <artifactId>chemicalTagger</artifactId>
             <version>1.1-SNAPSHOT</version>
         </dependency>
