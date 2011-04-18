@@ -42,6 +42,8 @@ public class WebdemoApplication extends Application {
         router.attach("/index.html", DefaultResource.class);
         router.attach("/submit", SubmitResource.class);
         router.attach("/viewXML", ViewXML.class);
+        router.attach("/instructions.html", InstructionsResource.class);
+
         router.attach("/res", dir);
 
 		return router;

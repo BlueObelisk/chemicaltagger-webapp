@@ -10,7 +10,7 @@
 
     <groupId>chemicalTagger</groupId>
     <artifactId>chemicalTagger-webapp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>chemicalTagger webapp</name>
@@ -39,12 +39,14 @@
     </build>
 
     <dependencies>
+        <!-- UCC projects -->
         <dependency>
-            <groupId>chemicalTagger</groupId>
+            <groupId>uk.ac.cam.ch</groupId>
             <artifactId>chemicalTagger</artifactId>
-            <version>1.0</version>
+            <version>1.1-SNAPSHOT</version>
         </dependency>
 
+		<!-- non-UCC projects -->
         <dependency>
             <groupId>org.restlet.jee</groupId>
             <artifactId>org.restlet</artifactId>
@@ -60,7 +62,6 @@
             <artifactId>org.restlet.ext.freemarker</artifactId>
             <version>2.0.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
