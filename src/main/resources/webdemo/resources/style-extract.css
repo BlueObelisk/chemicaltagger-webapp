@@ -11,6 +11,7 @@
   color: white;
   background-color: #333366;
 }
+blockquote { color:#666; font-style:normal; }
 #imgPreviewWithStyles {
 	border:1px solid #ccc;
 	background:white;
