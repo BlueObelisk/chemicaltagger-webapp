@@ -1,59 +1,88 @@
 <#include "base.ftl">
  <#macro chemicalContent>
-     <h3>About:</h3>
+     <h2>About</h2>
 
-ChemicalTagger is as a phrase-based semantic NLP tool for parsing the language of chemical experiments. Tagging is based on a modular architecture and uses a combination of OSCAR, domain-specific regex and English taggers to identify parts-of-speech. ANTLR grammar is used to
-structure this into tree-based phrases. It takes a string as input and produces an XML document as output. A demo of ChemicalTagger can be found <a href="http://chemicaltagger.ch.cam.ac.uk/">here</a>
+<p>ChemicalTagger is a phrase-based semantic NLP tool for parsing the language of chemical experiments. It takes a string as input and produces an XML document as output. Tagging is based on a modular architecture and uses a combination of OSCAR, domain-specific regex and English taggers to identify parts-of-speech. ANTLR grammar is then used to
+structure the tagged tokens into tree-based phrases which are then converted into an XML document. </p>
 
 
- <h3>Installation Instructions</h3>
-  
- The source code resides on <a href="https://bitbucket.org/lh359/chemicaltagger">bitbucket</a>
-To use ChemicalTagger as a library add chemicalTagger-1.0.jar to your classpath, this can be downloaded <a href="https://maven.ch.cam.ac.uk/content/repositories/releases/chemicalTagger/chemicalTagger/1.0/chemicalTagger-1.0.jar">here</a>. 
+<h2>Installation Instructions</h2>
+<p>This online version of ChemicalTagger is a demonstration and can be downloaded from <a href="https://bitbucket.org/wwmm/chemicaltagger-webapp">here</a>.</p> 
+<p>To use ChemicalTagger as a library either:</p>
 
-If you are using Maven then do the following:
-Add our repository:
-  <p>        <repository>
+<p>Download the chemicalTagger-1.0-jar-with-dependencies.jar from the <a href="https://bitbucket.org/lh359/chemicaltagger/downloads">downloads page</a>.<p> 
+
+<p>Or through maven by adding the following to your pom file:</p>
+
+
+<p>Add our repository:</p>
+  <xmp> <repository>
             <id>ucc-repo</id>
             <name>UCC Repository</name>
             <url>http://maven.ch.cam.ac.uk/m2repo</url>
-        </repository>
-  </p>      
-        Then add:
-          <p>
-          <dependency>
-            <groupId>uk.ac.cam.ch</groupId>
+ </repository> </xmp>     
+      <p>  Then add the following under dependencies:</p>
+  <xmp> <dependency>
+            <groupId>chemicalTagger</groupId>
             <artifactId>chemicalTagger</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-  </p> 
+            <version>1.0</version>
+ </dependency> </xmp> 
   
-  <h3>ChemicalTagger Components</h3>
+ <p>The latest version of the code can be downloaded from our <a href="https://bitbucket.org/lh359/chemicaltagger">bitbucket repository</a>.</p>
   
-    This package is used for marking up experimental sections in chemistry papers:
-    It has 3 main classes:
+ <h2>ChemicalTagger Components</h2>
+  
+    <p>It has 2 main classes:</p>
     
-       <h4> ChemistryPOSTagger</h4> 
+    
+       <h3> ChemistryPOSTagger</h3>
+       <p> 
+           This class adds syntactic structure to the input text. 
+	       <p>It first performs some pre-processesing by:</p>
+	        <ul> 
+	       		<li>Normalising the text</li>
+	       		<li>Running the SpectraTagger (Optional and only used for detecting NMR Spectra)</li>
+	        </ul>
+	        <p>It then tokenises the text using one of the following tokenisers:</p>
+	        <ul> 
+	       		<li>OscarTokeniser (default tokeniser and used for chemistry text)</li>
+	       		<li>WhitespaceTokeniser (used for mainly non-chemistry text)</li>
+	        </ul>
+	        <p>Then finally it runs the following 3 taggers against the text:</p>
+	        <ul>
+	             <li>OSCAR (for chemical entities)</li>
+	             <li>Regex (for recognising chemistry related entities)</li>
+	             <li>OpenNLP (for English parts-of-speech)</li>
+	       </ul>      
+       </p>      
+       <h3>ChemistrySentenceParser</h3> 
+      
+        <p>This class converts a tagged sentence into a parse tree as well as an XML document.</p>
+        <p>It first outputs the AST(Abstract Syntax Tree) by using the generated Lexer and Parser files (generated from compiling the ANTLR ChemicalChunker.g file).</p>     
+        <p>The AST is then converted into an XML document.</p>
         
-        This class takes a sentence and runs it against three taggers:
-             <li>OSCAR (for chemical entities)</li>
-             <li>Regex (for recognising chemistry related entities)</li>
-             <li>OpenNLP (for english parts of speech)</li>
-             
-       <h4>ChemistrySentenceParser</h4> 
-        
-           This class converts a tagged sentence into a parseTree. It uses a lexer and parser generated
-        by the Antlr grammar.     
-                 
-        <h4>ASTtoXML</h4>
-        This class converts an abstract tree into an XML document.
      
   
-  <h3>Running ChemicalTagger</h3>
-  To run ChemicalTagger you can either use the Utils convenience method     
-  Document doc = Utils.runChemicalTagger(text);
-  Documentation for this class can be found here
-  
+  <h2>Running ChemicalTagger</h2>
+  <p> To run ChemicalTagger you can either use the Utils convenience method</p>
+  <blockquote>     
+  	<p>Document doc = Utils.runChemicalTagger(text);<p>
+  </blockquote>
+
+  <p>Or for a more step-by-step method try the following:</p>
+  <blockquote>     
+    <p> ChemistryPOSTagger chemPos = ChemistryPOSTagger.getDefaultInstance();</p>
+    <p>// Alternatively, if you want to reconfigure the tokenisers and taggers then try the following command</p>
+    <p>//ChemistryPOSTagger chemPos = new ChemistryPOSTagger(ctTokeniser, oscarTagger, regexTagger, openNLPTagger)</p>
+	<p>POSContainer posContainer = chemPos.runTaggers(text);</p>
+	<p>// If you want to toggle priotiseOscar and useSpectraTagger then use the following command.</p>
+	<p>//POSContainer posContainer = chemPos.runTaggers(inputSentence, prioritiseOscar, useSpectraTagger)</p>
+	<p>ChemistrySentenceParser chemistrySentenceParser = new ChemistrySentenceParser(posContainer);</p>
+	<p>	chemistrySentenceParser.parseTags();</p>
+	<p>Document doc = chemistrySentenceParser.mkeXMLDocument();</p>
+  	
+  </blockquote>
+    
  	   
  </#macro>
   

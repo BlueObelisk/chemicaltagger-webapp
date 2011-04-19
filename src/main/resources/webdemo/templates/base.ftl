@@ -48,7 +48,7 @@
 					    <dt>Links</dt>
 					    <dd><a href="index.html">Web Interface</a></dd>
 					    <dd><a href="instructions.html">Instructions</a></dd>
-					    <dd><a href="http://apidoc.ch.cam.ac.uk/chemicaltagger/">Project Information</a></dd>
+					    <dd><a href="http://apidoc.ch.cam.ac.uk/chemicaltagger/">Documentation</a></dd>
 					    <dd><a href="https://bitbucket.org/lh359/chemicaltagger">BitBucket Project</a></dd>
 					    <dd><a href="https://bitbucket.org/lh359/chemicaltagger/downloads">Downloads</a></dd>
 					  </dl>
