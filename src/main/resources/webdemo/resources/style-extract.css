@@ -160,6 +160,15 @@ blockquote { color:#666; font-style:normal; }
   color:white;
 }
 
+.Reactant{
+  background-color:#999999; 
+  color:white;
+}
+
+.Product{
+  background-color:#66CC00; 
+  color:white;
+}
 .Other{
   background-color:#996666; 
   color:white;
