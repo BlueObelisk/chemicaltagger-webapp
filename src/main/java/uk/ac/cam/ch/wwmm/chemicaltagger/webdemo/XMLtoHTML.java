@@ -96,11 +96,13 @@ public class XMLtoHTML {
 			name = xmlTag.getAttributeValue("type");
 			actionCheckSet.add(name);
 		}
+		else if (name.startsWith("LOCATION")|| name.startsWith("CAMPAIGN"))
+			actionCheckSet.add(name);
 		if (name.contains("OSCARONT")) {
 			name = "Oscar";
 			oscarOntCheckSet.add(name);
 		}
-		if (name.contains("MOLECULE")) {
+		else if (name.contains("MOLECULE")) {
 			name = "Other";
 			if (StringUtils.isNotEmpty(xmlTag.getAttributeValue("role"))) name =  xmlTag.getAttributeValue("role");
 			moleculeCheckSet.add(name);
