@@ -11,15 +11,16 @@ $(document).ready(function() {
 
 
 
-function initialize() {
-if (GBrowserIsCompatible()) {
-var map = new GMap2(document.getElementById("map_canvas"));
-map.setCenter(new GLatLng(37.4419, -122.1419), 13);
-map.setUIToDefault();
-map.openInfoWindow(map.getCenter(),
-        document.openInfoWindowHtml("<img src='http://opsin.ch.cam.ac.uk/opsin/formaldehyde.png'/>"));
-}
-}
+ function initialize() {
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var myOptions = {
+      zoom: 8,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+  }
 
 function changeText(id) {
 	if ($(id).val()=="Try an Atmospheric Chemistry Example") {

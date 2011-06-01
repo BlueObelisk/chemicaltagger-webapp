@@ -4,3 +4,5 @@ glob:.settings/
 glob:target/
 glob:.idea/
 glob:*.iml
+glob:*.orig
+glob:*~
