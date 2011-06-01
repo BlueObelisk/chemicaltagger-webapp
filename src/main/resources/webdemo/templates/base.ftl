@@ -31,8 +31,10 @@
 
       <h1>ChemicalTagger</h1>
    </div>
+          <div id="map_canvas" style="width:50%; height:50%"></div>                       
    
    <div id="container"> <a name="skip-content" id="skip-content"></a>
+   
       <div id="content">
          <div id="content-primary">
            <ul id="nav-breadcrumb">
@@ -42,7 +44,6 @@
             <li><a href="http://www-ucc.ch.cam.ac.uk/">Unilever Centre for Molecular Science Informatics</a></li>
           </ul>
          <div>
-                                    <div id="map_canvas" style="width:100%; height:100%"></div>                       
          
                    <@chemicalContent/> 
             

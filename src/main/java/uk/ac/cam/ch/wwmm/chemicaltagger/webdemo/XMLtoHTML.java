@@ -14,6 +14,7 @@ import nu.xom.Nodes;
 
 import org.apache.commons.lang.StringUtils;
 
+import uk.ac.cam.ch.wwmm.acpgeo.CoordinatesLoader;
 import uk.ac.cam.ch.wwmm.chemicaltagger.ExtractFromXML;
 
 public class XMLtoHTML {
@@ -32,7 +33,7 @@ public class XMLtoHTML {
 	public Set<String> oscarOntCheckSet;
 	public String taggedText;
 	public HashMap<String, Set<String>> checkBoxes;
-	public HashMap<String, String> geoInfo;
+	private HashMap<String, String> geoInfo;
 	public void convert(Document doc) {
 		actionCheckSet = new HashSet<String>();
 		phraseCheckSet = new HashSet<String>();
@@ -45,24 +46,34 @@ public class XMLtoHTML {
 		taggedText = SPAN_BEGIN + "'Document'>" + getHTMLBody(doc.getRootElement(), SPAN_END
 				+ SPACE_DELIMITER) + SPAN_END;
 
+		
+
         checkBoxes = getCheckBoxContent();
 		geoInfo =  getGeoInfo(doc);
-
+		
 	}
 
 
+
+
 	public HashMap<String, String> getGeoInfo(Document doc) {
+		CoordinatesLoader gawCoordinates = new CoordinatesLoader();
+		HashMap<String, String> coordsMap = gawCoordinates.getSiteCoordsMap();
 		HashMap<String, String> mapInfo = new HashMap<String, String>();
 		
 		Nodes locationNodes = doc.query("//LOCATION[descendant-or-self::NNP-STATION]");
 		List<String> moleculeList = new ArrayList<String>();
 
 		if (locationNodes.size() > 0) {
+			String longitude = "";
+			String latitude = "";
+			String asl ="";
+			String locationName = ExtractFromXML.getStringValue((Element)locationNodes.get(0)," ").trim();
+			mapInfo.put("Location",locationName);
 			
-			mapInfo.put("Location Name", ExtractFromXML.getStringValue((Element)locationNodes.get(0)," "));
 			Nodes campaignNodes = doc.query("//CAMPAIGN");
 			if (campaignNodes.size() > 0) {
-				mapInfo.put("Campaign Name", ExtractFromXML.getStringValue((Element)campaignNodes.get(0)," "));	
+				mapInfo.put("Campaign", ExtractFromXML.getStringValue((Element)campaignNodes.get(0)," "));	
 			}
 			Nodes moleculeNodes = doc.query("//MOLECULE[ancestor-or-self::ActionPhrase]");
 			for (int i = 0; i < moleculeNodes.size(); i++) {
@@ -70,9 +81,20 @@ public class XMLtoHTML {
 				if (!moleculeList.contains(molecule))
 					moleculeList.add(molecule);
 			}
-			mapInfo.put("Molecule List",StringUtils.join(moleculeList.toArray(),", "));
+			if (coordsMap.containsKey(locationName)){
+				String longLat[] = coordsMap.get(locationName).split(" ");
+				longitude = longLat[0].split("\u00b0|\u00ba")[0].trim();
+				latitude = longLat[1].split("\u00b0|\u00ba")[0].trim();
+				asl = longLat[2].trim();
+				mapInfo.put("Longitude", longitude);
+				mapInfo.put("Latitude", latitude);
+				mapInfo.put("Asl", asl);
+			}
+			mapInfo.put("Molecules",StringUtils.join(moleculeList.toArray(),", "));
+			
 			System.out.println(mapInfo);
 		}	
+		
 		return mapInfo;
 	}
 
@@ -141,7 +163,6 @@ public class XMLtoHTML {
 				ahrefString = "<a href='http://opsin.ch.cam.ac.uk/opsin/"+getOscarCM(xmlTag)+".png'>";
 			
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -171,15 +192,9 @@ public class XMLtoHTML {
 
 		HashMap<String,Set<String>> checkboxHashMap = new HashMap<String,Set<String>>();
 		if (actionCheckSet.size()> 0) checkboxHashMap.put("Actions", actionCheckSet);
-		
 		if (conditionCheckSet.size()> 0) checkboxHashMap.put("Conditions", conditionCheckSet);
-		
-		
 		if (moleculeCheckSet.size()> 0)checkboxHashMap.put("Molecules", moleculeCheckSet);
-		
-		
 		if (phraseCheckSet.size()> 0) checkboxHashMap.put("Phrases", phraseCheckSet);
-		
 		if (oscarOntCheckSet.size()> 0) checkboxHashMap.put("Ontology_Terms", oscarOntCheckSet);
 		return checkboxHashMap;
 	}
@@ -202,5 +217,12 @@ public class XMLtoHTML {
 
 	public HashMap<String, Set<String>> getCheckBoxes() {
 		return checkBoxes;
+	}
+
+
+
+
+	public HashMap<String, String> getGeoInfo() {
+		return geoInfo;
 	}
 }
