@@ -78,7 +78,9 @@ public class SubmitResource extends ServerResource {
         String xmlDocument = StringEscapeUtils.escapeHtml(doc.toXML());
         model.put("xmlContent",xmlDocument);
         model.put("taggedText",Jsoup.parseBodyFragment(xmltoHTML.getTaggedText()).toString());
-        model.put("checkBoxes", xmltoHTML.getCheckBoxes());     
+        model.put("checkBoxes", xmltoHTML.getCheckBoxes());
+        model.putAll(xmltoHTML.getGeoInfo());
+        System.out.println(xmltoHTML.getGeoInfo());
         return webDemo.getTemplateRepresentation("tagged.ftl", model, MediaType.TEXT_HTML);
         
     }
