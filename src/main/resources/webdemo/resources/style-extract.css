@@ -26,7 +26,9 @@ blockquote { color:#666; font-style:normal; }
 	}
 
 
-
+  html { height: 100% }
+  body { height: 100%; margin: 0px; padding: 0px }
+  #map_canvas { height: 100% }
 
 
 

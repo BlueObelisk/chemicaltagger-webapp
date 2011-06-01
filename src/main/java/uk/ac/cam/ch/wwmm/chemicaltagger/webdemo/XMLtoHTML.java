@@ -2,14 +2,19 @@ package uk.ac.cam.ch.wwmm.chemicaltagger.webdemo;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Nodes;
+
 import org.apache.commons.lang.StringUtils;
+
+import uk.ac.cam.ch.wwmm.chemicaltagger.ExtractFromXML;
 
 public class XMLtoHTML {
 
@@ -27,7 +32,7 @@ public class XMLtoHTML {
 	public Set<String> oscarOntCheckSet;
 	public String taggedText;
 	public HashMap<String, Set<String>> checkBoxes;
-	
+	public HashMap<String, String> geoInfo;
 	public void convert(Document doc) {
 		actionCheckSet = new HashSet<String>();
 		phraseCheckSet = new HashSet<String>();
@@ -41,8 +46,34 @@ public class XMLtoHTML {
 				+ SPACE_DELIMITER) + SPAN_END;
 
         checkBoxes = getCheckBoxContent();
-		
+		geoInfo =  getGeoInfo(doc);
 
+	}
+
+
+	public HashMap<String, String> getGeoInfo(Document doc) {
+		HashMap<String, String> mapInfo = new HashMap<String, String>();
+		
+		Nodes locationNodes = doc.query("//LOCATION[descendant-or-self::NNP-STATION]");
+		List<String> moleculeList = new ArrayList<String>();
+
+		if (locationNodes.size() > 0) {
+			
+			mapInfo.put("Location Name", ExtractFromXML.getStringValue((Element)locationNodes.get(0)," "));
+			Nodes campaignNodes = doc.query("//CAMPAIGN");
+			if (campaignNodes.size() > 0) {
+				mapInfo.put("Campaign Name", ExtractFromXML.getStringValue((Element)campaignNodes.get(0)," "));	
+			}
+			Nodes moleculeNodes = doc.query("//MOLECULE[ancestor-or-self::ActionPhrase]");
+			for (int i = 0; i < moleculeNodes.size(); i++) {
+				String molecule = ExtractFromXML.getStringValue((Element)moleculeNodes.get(i)," ");
+				if (!moleculeList.contains(molecule))
+					moleculeList.add(molecule);
+			}
+			mapInfo.put("Molecule List",StringUtils.join(moleculeList.toArray(),", "));
+			System.out.println(mapInfo);
+		}	
+		return mapInfo;
 	}
 
 
