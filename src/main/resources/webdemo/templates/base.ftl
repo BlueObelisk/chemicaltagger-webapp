@@ -19,10 +19,17 @@
     src="http://maps.google.com/maps/api/js?sensor=true"></script>
    <link rel='stylesheet' type='text/css' href='res/style-extract.css'/>  
            <@page_head/> 
-
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0px; padding: 0px }
+  map_canvas { height: 100% ; width:100%; }
+</style>
    </head>
-   <body class="home" onload="initialize()"> 
-   
+   <#if Location??>
+   <body onload="initialize(${Longitude},${Latitude},'${Location}','${Campaign}','${Molecules}')">
+<#else>
+<body onload="initialize(-25.363882,131.044922,'Australia','CHABLIS','water, THF, DMAP')">
+</#if>
    <div id="skip"> <a href="#skip-content" accesskey="2">Skip to content</a> </div>
    <div id="header">
 	   <div id="branding"><a href="http://www.cam.ac.uk/" accesskey="1"><img src="res/global/images/identifier4.gif" alt="University of Cambridge" class="ucam" /></a><a href="http://www-ucc.ch.cam.ac.uk"><img src="res/global/ucc.png" alt="Unilever Centre for Molecular Science Informatics" class="ucc-logo" width="118" height="50" /></a></div>
@@ -31,12 +38,11 @@
 
       <h1>ChemicalTagger</h1>
    </div>
-          <div id="map_canvas" style="width:50%; height:50%"></div>                       
    
-   <div id="container"> <a name="skip-content" id="skip-content"></a>
+   <div id="container" > <a name="skip-content" id="skip-content"></a>
    
-      <div id="content">
-         <div id="content-primary">
+      <div id="content" >
+         <div id="content-primary" >
            <ul id="nav-breadcrumb">
             <li class="first"><a href="http://www.cam.ac.uk/">University of Cambridge</a></li>
 
@@ -44,7 +50,6 @@
             <li><a href="http://www-ucc.ch.cam.ac.uk/">Unilever Centre for Molecular Science Informatics</a></li>
           </ul>
          <div>
-         
                    <@chemicalContent/> 
             
             </div>

@@ -1,5 +1,9 @@
 <#include "base.ftl">
  <#macro chemicalContent>
+<#if Location??>
+              <div id='map_canvas' style="width: 400px; height: 300px;"></div>      
+
+</#if>
  <div id='taggedReaction'>
 					     	${taggedText}
 					    </div>
@@ -13,12 +17,7 @@
 					          </form>
 				          </#list>
 				          
-				          <div id ="info">
-				          <li>Location = ${Location}</li>
-				          <li>Campaign = ${Campaign}</li>
-				          <li>LongLat = ${Longitude}, ${Latitude}</li>
-				          <li>Molecules = ${Molecules}</li>
-				          </div>
+				      
 					     <form action="/viewXML" method="post" >
 					           <textarea style="display:none" rows="20" cols="10" name="xml" type="hidden">${xmlContent}</textarea>
 					           <input type='submit'  value="View XML">
