@@ -11,16 +11,35 @@ $(document).ready(function() {
 
 
 
- function initialize() {
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
+function initialize(longitude,latitude, loc, campaign,molecules) {
+    var myLatlng = new google.maps.LatLng(longitude,latitude);
+    var centerLatlng = new google.maps.LatLng(longitude+100,latitude);
     var myOptions = {
-      zoom: 8,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map_canvas"),
-        myOptions);
+     zoom: 4,
+     panControl: true,
+     zoomControl: true,
+     scaleControl: true,
+     center: centerLatlng,
+     mapTypeId: google.maps.MapTypeId.SATELLITE
+    }
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    
+    var marker = new google.maps.Marker({
+        position: myLatlng, 
+        map: map,
+        title:loc
+    });   
+
+    var infowindow = new google.maps.InfoWindow({
+    content: "<ul> Location: "+loc+"</ul>"+
+             "<ul> Campaign: "+campaign+"</ul>"+ 
+             "<ul> Molecules: "+molecules+"</ul>"
+     });
+
+    infowindow.open(map,marker);
+
   }
+ 
 
 function changeText(id) {
 	if ($(id).val()=="Try an Atmospheric Chemistry Example") {
