@@ -46,7 +46,6 @@ public class XMLtoHTML {
 		taggedText = SPAN_BEGIN + "'Document'>" + getHTMLBody(doc.getRootElement(), SPAN_END
 				+ SPACE_DELIMITER) + SPAN_END;
 
-		
 
         checkBoxes = getCheckBoxContent();
 		geoInfo =  getGeoInfo(doc);
@@ -83,9 +82,12 @@ public class XMLtoHTML {
 			}
 			if (coordsMap.containsKey(locationName)){
 				String longLat[] = coordsMap.get(locationName).split(" ");
+				
 				longitude = longLat[0].split("\u00b0|\u00ba")[0].trim();
 				latitude = longLat[1].split("\u00b0|\u00ba")[0].trim();
 				asl = longLat[2].trim();
+				if (longLat[0].contains("S")) longitude = "-"+longitude;
+				if (longLat[1].contains("W")) latitude = "-"+latitude;
 				mapInfo.put("Longitude", longitude);
 				mapInfo.put("Latitude", latitude);
 				mapInfo.put("Asl", asl);
