@@ -1,6 +1,6 @@
 <#include "base.ftl">
  <#macro chemicalContent>
-<#if Location??>
+   <#if Location??>
               <div id='map_canvas' style="width: 400px; height: 300px;"></div>      
 
 </#if>
