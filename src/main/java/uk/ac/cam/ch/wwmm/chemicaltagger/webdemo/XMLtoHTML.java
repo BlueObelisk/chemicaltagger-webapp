@@ -61,6 +61,10 @@ public class XMLtoHTML {
 		HashMap<String, String> mapInfo = new HashMap<String, String>();
 		
 		Nodes locationNodes = doc.query("//LOCATION[descendant-or-self::NNP-STATION]");
+//		if (locationNodes.size() == 0) 
+//			locationNodes = doc.query("//LocationPhrase[descendant-or-self::NNP-STATION]");
+		
+		
 		List<String> moleculeList = new ArrayList<String>();
 
 		if (locationNodes.size() > 0) {
@@ -68,6 +72,7 @@ public class XMLtoHTML {
 			String latitude = "";
 			String asl ="";
 			String locationName = ExtractFromXML.getStringValue((Element)locationNodes.get(0)," ").trim();
+			System.out.println(locationName);
 			mapInfo.put("Location",locationName);
 			
 			Nodes campaignNodes = doc.query("//CAMPAIGN");
@@ -151,7 +156,7 @@ public class XMLtoHTML {
 			name = xmlTag.getAttributeValue("type");
 			actionCheckSet.add(name);
 		}
-		else if (name.startsWith("LOCATION")|| name.startsWith("CAMPAIGN"))
+		else if (name.startsWith("LOCATION")|| name.startsWith("CAMPAIGN") || name.startsWith("LocationPhrase"))
 			actionCheckSet.add(name);
 		if (name.contains("OSCARONT")) {
 			name = "Oscar";
@@ -171,7 +176,7 @@ public class XMLtoHTML {
 		
 		else if (name.startsWith("Temp") ||name.startsWith("Time") || name.startsWith("Atmosphere"))
 			conditionCheckSet.add(name);
-		else if (name.contains("Phrase")) phraseCheckSet.add(name);
+		else if (name.contains("Phrase") && !name.contains("Location")) phraseCheckSet.add(name);
 		spanStart.append(SPAN_BEGIN + "'"+name + "'>"+ahrefString);
 
 		return spanStart.toString();
