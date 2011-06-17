@@ -87,7 +87,7 @@ public class XMLtoHTML {
 			}
 			if (coordsMap.containsKey(locationName)){
 				String longLat[] = coordsMap.get(locationName).split(" ");
-				
+				System.out.println(longLat);
 				longitude = longLat[0].split("\u00b0|\u00ba")[0].trim();
 				latitude = longLat[1].split("\u00b0|\u00ba")[0].trim();
 				asl = longLat[2].trim();
