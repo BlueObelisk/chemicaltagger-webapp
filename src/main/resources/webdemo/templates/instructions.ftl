@@ -10,7 +10,7 @@ structure the tagged tokens into tree-based phrases which are then converted int
 <p>This online version of ChemicalTagger is a demonstration and can be downloaded from <a href="https://bitbucket.org/wwmm/chemicaltagger-webapp">here</a>.</p> 
 <p>To use ChemicalTagger as a library either:</p>
 
-<p>Download the chemicalTagger-1.0-jar-with-dependencies.jar from the <a href="https://bitbucket.org/lh359/chemicaltagger/downloads">downloads page</a>.<p> 
+<p>Download the chemicalTagger-1.0.2-jar-with-dependencies.jar from the <a href="https://bitbucket.org/wwmm/chemicaltagger/downloads">downloads page</a>.<p> 
 
 <p>Or through maven by adding the following to your pom file:</p>
 
@@ -23,12 +23,12 @@ structure the tagged tokens into tree-based phrases which are then converted int
  </repository> </xmp>     
       <p>  Then add the following under dependencies:</p>
   <xmp> <dependency>
-            <groupId>chemicalTagger</groupId>
+            <groupId>uk.ac.cam.ch</groupId>
             <artifactId>chemicalTagger</artifactId>
-            <version>1.0</version>
+            <version>1.0.2</version>
  </dependency> </xmp> 
   
- <p>The latest version of the code can be downloaded from our <a href="https://bitbucket.org/lh359/chemicaltagger">bitbucket repository</a>.</p>
+ <p>The latest version of the code can be downloaded from our <a href="https://bitbucket.org/wwmm/chemicaltagger">bitbucket repository</a>.</p>
   
  <h2>ChemicalTagger Components</h2>
   
@@ -79,7 +79,7 @@ structure the tagged tokens into tree-based phrases which are then converted int
 	<p>//POSContainer posContainer = chemPos.runTaggers(inputSentence, prioritiseOscar, useSpectraTagger)</p>
 	<p>ChemistrySentenceParser chemistrySentenceParser = new ChemistrySentenceParser(posContainer);</p>
 	<p>	chemistrySentenceParser.parseTags();</p>
-	<p>Document doc = chemistrySentenceParser.mkeXMLDocument();</p>
+	<p>Document doc = chemistrySentenceParser.makeXMLDocument();</p>
   	
   </blockquote>
     
