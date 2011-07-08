@@ -25,11 +25,7 @@
   map_canvas { height: 100% ; width:100%; }
 </style>
    </head>
-   <#if Location??>
-   <body onload="initialize(${Longitude},${Latitude},'${Location}','${Campaign}','${Molecules}')">
-<#else>
-<body onload="initialize(-25.363882,131.044922,'Australia','CHABLIS','water, THF, DMAP')">
-</#if>
+
    <div id="skip"> <a href="#skip-content" accesskey="2">Skip to content</a> </div>
    <div id="header">
 	   <div id="branding"><a href="http://www.cam.ac.uk/" accesskey="1"><img src="res/global/images/identifier4.gif" alt="University of Cambridge" class="ucam" /></a><a href="http://www-ucc.ch.cam.ac.uk"><img src="res/global/ucc.png" alt="Unilever Centre for Molecular Science Informatics" class="ucc-logo" width="118" height="50" /></a></div>
@@ -62,8 +58,8 @@
 					    <dd><a href="instructions.html">Instructions</a></dd>
 					    <dd><a href="http://apidoc.ch.cam.ac.uk/chemicaltagger/">Documentation</a></dd>
 					    <dd><a href="http://www.jcheminf.com/content/3/1/17">Publication</a></dd>
-					    <dd><a href="https://bitbucket.org/lh359/chemicaltagger">BitBucket Project</a></dd>
-					    <dd><a href="https://bitbucket.org/lh359/chemicaltagger/downloads">Downloads</a></dd>
+					    <dd><a href="https://bitbucket.org/wwmm/chemicaltagger">BitBucket Project</a></dd>
+					    <dd><a href="https://bitbucket.org/wwmm/chemicaltagger/downloads">Downloads</a></dd>
 					  </dl>
 		</div>
       </div>

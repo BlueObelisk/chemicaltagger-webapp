@@ -20,7 +20,6 @@ public class XMLtoHTMLTest {
 
 		Document doc = new Builder().build(Utils.getInputStream(
 				this.getClass(), "/xml/atmosph.xml"));
-        new XMLtoHTML().getGeoInfo(doc);
 		Assert.assertTrue(doc!=null);
 	}
 }
