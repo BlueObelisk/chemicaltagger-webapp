@@ -5,7 +5,10 @@
 <p>ChemicalTagger is a phrase-based semantic NLP tool for parsing the language of chemical experiments. It takes a string as input and produces an XML document as output. Tagging is based on a modular architecture and uses a combination of OSCAR, domain-specific regex and English taggers to identify parts-of-speech. ANTLR grammar is then used to
 structure the tagged tokens into tree-based phrases which are then converted into an XML document. </p>
 
+<h2>License and Warranty</h2>
 
+<p>ChemicalTagger is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License Version 2.0 </a> </p>
+<p>ChemicalTagger is made available in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. </p>
 <h2>Installation Instructions</h2>
 <p>This online version of ChemicalTagger is a demonstration and can be downloaded from <a href="https://bitbucket.org/wwmm/chemicaltagger-webapp">here</a>.</p> 
 <p>To use ChemicalTagger as a library either:</p>
