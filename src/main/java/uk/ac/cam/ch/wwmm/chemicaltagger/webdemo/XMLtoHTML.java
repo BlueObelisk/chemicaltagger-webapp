@@ -2,8 +2,10 @@ package uk.ac.cam.ch.wwmm.chemicaltagger.webdemo;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import nu.xom.Document;
@@ -11,6 +13,9 @@ import nu.xom.Element;
 import nu.xom.Nodes;
 
 import org.apache.commons.lang.StringUtils;
+
+import uk.ac.cam.ch.wwmm.acpgeo.CoordinatesLoader;
+import uk.ac.cam.ch.wwmm.chemicaltagger.ExtractFromXML;
 
 public class XMLtoHTML {
 
@@ -43,13 +48,64 @@ public class XMLtoHTML {
 
 
         checkBoxes = getCheckBoxContent();
+		geoInfo =  getGeoInfo(doc);
 		
 	}
 
 
 
 
-	
+	public HashMap<String, String> getGeoInfo(Document doc) {
+		CoordinatesLoader gawCoordinates = new CoordinatesLoader();
+		HashMap<String, String> coordsMap = gawCoordinates.getSiteCoordsMap();
+		HashMap<String, String> mapInfo = new HashMap<String, String>();
+		
+		Nodes locationNodes = doc.query("//LOCATION[descendant-or-self::NNP-STATION]");
+//		if (locationNodes.size() == 0) 
+//			locationNodes = doc.query("//LocationPhrase[descendant-or-self::NNP-STATION]");
+		
+		
+		List<String> moleculeList = new ArrayList<String>();
+
+		if (locationNodes.size() > 0) {
+			String longitude = "";
+			String latitude = "";
+			String asl ="";
+			String locationName = ExtractFromXML.getStringValue((Element)locationNodes.get(0)," ").trim();
+			System.out.println(locationName);
+			mapInfo.put("Location",locationName);
+			
+			Nodes campaignNodes = doc.query("//CAMPAIGN");
+			if (campaignNodes.size() > 0) {
+				mapInfo.put("Campaign", ExtractFromXML.getStringValue((Element)campaignNodes.get(0)," "));	
+			}
+			Nodes moleculeNodes = doc.query("//MOLECULE[ancestor-or-self::ActionPhrase]");
+			for (int i = 0; i < moleculeNodes.size(); i++) {
+				String molecule = ExtractFromXML.getStringValue((Element)moleculeNodes.get(i)," ");
+				if (!moleculeList.contains(molecule))
+					moleculeList.add(molecule);
+			}
+			if (coordsMap.containsKey(locationName)){
+				String longLat[] = coordsMap.get(locationName).split(" ");
+				System.out.println(longLat);
+				longitude = longLat[0].split("\u00b0|\u00ba")[0].trim();
+				latitude = longLat[1].split("\u00b0|\u00ba")[0].trim();
+				asl = longLat[2].trim();
+				if (longLat[0].contains("S")) longitude = "-"+longitude;
+				if (longLat[1].contains("W")) latitude = "-"+latitude;
+				mapInfo.put("Longitude", longitude);
+				mapInfo.put("Latitude", latitude);
+				mapInfo.put("Asl", asl);
+			}
+			mapInfo.put("Molecules",StringUtils.join(moleculeList.toArray(),", "));
+			
+			System.out.println(mapInfo);
+		}	
+		
+		return mapInfo;
+	}
+
+
 	/****************************************
 	 * Parses an XML document and converts to an HTML string
 	 * 

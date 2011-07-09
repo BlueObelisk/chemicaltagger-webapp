@@ -11,7 +11,7 @@
 
 	<groupId>chemicalTagger</groupId>
 	<artifactId>chemicalTagger-webapp</artifactId>
-	<version>1.0.2</version>
+	<version>1.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<name>chemicalTagger webapp</name>
@@ -42,10 +42,11 @@
 	<dependencies>
 		<!-- UCC projects -->
 		<dependency>
-			<groupId>uk.ac.cam.ch</groupId>
-			<artifactId>chemicalTagger</artifactId>
-			<version>1.0.2</version>
+			<groupId>ACPGeo</groupId>
+			<artifactId>ACPGeo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 		<!-- non-UCC projects -->
 		<dependency>
 			<groupId>org.restlet.jee</groupId>
