@@ -2,7 +2,9 @@ package uk.ac.cam.ch.wwmm.chemicaltagger.webdemo;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import nu.xom.Document;
@@ -26,6 +28,7 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.OscarTokeniser;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.RegexTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.SentenceParser;
+import uk.ac.cam.ch.wwmm.chemicaltagger.Tagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.WhiteSpaceTokeniser;
 import uk.ac.cam.ch.wwmm.oscar.Oscar;
 
@@ -54,10 +57,12 @@ public class SubmitResource extends ServerResource {
         OpenNLPTagger openNLPTagger = OpenNLPTagger.getInstance();
         
         if (chemistryType.equalsIgnoreCase("Atmospheric")){
-		    chemPos = new ChemistryPOSTagger(new WhiteSpaceTokeniser(), oscarTagger, new ACPRegexTagger() , openNLPTagger);
+        	List<Tagger> taggers = Arrays.asList(new ACPRegexTagger(), oscarTagger, openNLPTagger);
+        	chemPos = new ChemistryPOSTagger(new WhiteSpaceTokeniser(), taggers);
         }
         else {
-        	chemPos = new ChemistryPOSTagger(new OscarTokeniser(getOscarInstance()), oscarTagger, new RegexTagger() , openNLPTagger);
+        	List<Tagger> taggers = Arrays.asList(new RegexTagger(), oscarTagger, openNLPTagger);
+        	chemPos = new ChemistryPOSTagger(new OscarTokeniser(), taggers);
         }
         POSContainer container = chemPos.runTaggers(body);
         InputStream taggedStream = IOUtils.toInputStream(container.getTokenTagTupleAsString(), "UTF-8");
