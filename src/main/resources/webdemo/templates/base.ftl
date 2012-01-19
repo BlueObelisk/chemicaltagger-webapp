@@ -70,7 +70,7 @@
 	  <!-- end of #content -->
 			
 	  <ul id="site-info">
-	  <li class="copy">&copy; 2009-2011 <a href="mailto:lh359@cam.ac.uk">Lezan Hawizy</a>, <a href="mailto:dmj30@cam.ac.uk">David Jessop</a>, <a href="mailto:dl387@cam.ac.uk">Daniel Lowe</a>, Unilever Centre for Molecular Science Informatics</li>
+	  <li class="copy">&copy; 2009-2012 <a href="mailto:lhawizy[atsign]gmail.com">Lezan Hawizy</a>, David Jessop, <a href="mailto:dl387@cam.ac.uk">Daniel Lowe</a>, Hannah Barjat, Unilever Centre for Molecular Science Informatics</li>
   	  <li class="link last"><a href="http://www.ch.cam.ac.uk/content/privacy">Privacy</a></li>
 	  <li class="link"><a href="http://www.cam.ac.uk/site/">Accessibility</a></li>
   	  </ul>

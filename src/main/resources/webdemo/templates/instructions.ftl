@@ -2,7 +2,7 @@
  <#macro chemicalContent>
      <h2>About</h2>
 
-<p>ChemicalTagger is a phrase-based semantic NLP tool for parsing the language of chemical experiments. It takes a string as input and produces an XML document as output. Tagging is based on a modular architecture and uses a combination of OSCAR, domain-specific regex and English taggers to identify parts-of-speech. ANTLR grammar is then used to
+<p>ChemicalTagger is a phrase-based semantic NLP tool for parsing the language of chemical experiments. It takes a string as input and produces an XML document as output. Tagging is based on a modular architecture and uses a combination of OSCAR4, domain-specific regex and English taggers to identify parts-of-speech. An ANTLR grammar is then used to
 structure the tagged tokens into tree-based phrases which are then converted into an XML document. </p>
 
 <h2>License and Warranty</h2>
@@ -13,7 +13,7 @@ structure the tagged tokens into tree-based phrases which are then converted int
 <p>This online version of ChemicalTagger is a demonstration and can be downloaded from <a href="https://bitbucket.org/wwmm/chemicaltagger-webapp">here</a>.</p> 
 <p>To use ChemicalTagger as a library either:</p>
 
-<p>Download the chemicalTagger-1.0.2-jar-with-dependencies.jar from the <a href="https://bitbucket.org/wwmm/chemicaltagger/downloads">downloads page</a>.<p> 
+<p>Download the chemicalTagger-1.3-jar-with-dependencies.jar from the <a href="https://bitbucket.org/wwmm/chemicaltagger/downloads">downloads page</a>.<p> 
 
 <p>Or through maven by adding the following to your pom file:</p>
 
@@ -28,7 +28,7 @@ structure the tagged tokens into tree-based phrases which are then converted int
   <xmp> <dependency>
             <groupId>uk.ac.cam.ch</groupId>
             <artifactId>chemicalTagger</artifactId>
-            <version>1.0.2</version>
+            <version>1.3</version>
  </dependency> </xmp> 
   
  <p>The latest version of the code can be downloaded from our <a href="https://bitbucket.org/wwmm/chemicaltagger">bitbucket repository</a>.</p>

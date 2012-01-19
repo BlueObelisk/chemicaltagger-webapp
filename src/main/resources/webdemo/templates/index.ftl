@@ -2,7 +2,7 @@
  <#macro chemicalContent>
  	          <form action="/submit" method="post">
  	          <b>New:</b> Now works on Atmospheric Chemistry Abstracts (Beta)
-	            <p>ChemicalTagger is an open-source tool that uses OSCAR and NLP techniques for tagging and parsing experimental sections in the chemistry literature.</p>
+	            <p>ChemicalTagger is an open-source tool that uses OSCAR4 and NLP techniques for tagging and parsing experimental sections in the chemistry literature.</p>
                 <p>To use this demo, select the type of chemistry you would like to analyse (below), enter some chemical text and click the 'Process Text' button</p>
 
 
