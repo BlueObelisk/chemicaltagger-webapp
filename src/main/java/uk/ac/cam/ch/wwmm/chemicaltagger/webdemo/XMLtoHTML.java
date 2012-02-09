@@ -185,7 +185,7 @@ public class XMLtoHTML {
 		if (name.contains("QUANTITY") || name.contains("UNIT") || name.contains("MATH")) {
 			quantityCheckSet.add(name);
       }	
-		if (name.startsWith("MODEL") || (name.startsWith("NNP-MODEL") ||  name.startsWith("APPARATUS") ||  name.startsWith("NNP-APPARATUS") || name.contains("PLATFORM") || name.contains("SATELLITE")) {
+		if (name.startsWith("MODEL") || name.startsWith("NNP-MODEL") ||  name.startsWith("APPARATUS") ||  name.startsWith("NNP-APPARATUS") || name.contains("PLATFORM") || name.contains("SATELLITE")) {
 			toolsCheckSet.add(name);
       }	
 		if (name.contains("CITATION")) {
