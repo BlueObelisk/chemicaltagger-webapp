@@ -1,0 +1,17 @@
+glob:.classpath
+glob:.project
+glob:.settings/
+glob:target/
+glob:.idea/
+glob:*.iml
+glob:*.orig*
+glob:*~*
+glob:.deployment
+glob:bin
+glob:*DS_Store*
+glob:.metadata
+glob*.bk
+glob:*output/*
+glob:eclipse.log
+~                  
+
