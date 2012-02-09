@@ -4,5 +4,13 @@ glob:.settings/
 glob:target/
 glob:.idea/
 glob:*.iml
-glob:*.orig
-glob:*~
+glob:*.orig*
+glob:*~*
+glob:.deployment
+glob:bin
+glob:*DS_Store*
+glob:.metadata
+glob:*output/*
+glob:eclipse.log
+~                  
+

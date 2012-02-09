@@ -31,6 +31,9 @@ public class XMLtoHTML {
 	public Set<String> conditionCheckSet;
 	public Set<String> moleculeCheckSet;
 	public Set<String> oscarOntCheckSet;
+	public Set<String> quantityCheckSet;
+	public Set<String> toolsCheckSet;
+	public Set<String> citationCheckSet;
 	public String taggedText;
 	public HashMap<String, Set<String>> checkBoxes;
 	private HashMap<String, String> geoInfo;
@@ -40,6 +43,9 @@ public class XMLtoHTML {
 		conditionCheckSet = new HashSet<String>();
 		moleculeCheckSet = new HashSet<String>();
 		oscarOntCheckSet = new HashSet<String>();
+		quantityCheckSet = new HashSet<String>();
+		toolsCheckSet = new HashSet<String>();
+		citationCheckSet = new HashSet<String>();
 		
 		taggedText = new String();
 		
@@ -156,7 +162,7 @@ public class XMLtoHTML {
 			name = xmlTag.getAttributeValue("type");
 			actionCheckSet.add(name);
 		}
-		else if (name.startsWith("LOCATION")|| name.startsWith("CAMPAIGN") || name.startsWith("LocationPhrase"))
+		else if (name.startsWith("LOCATION")|| name.startsWith("CAMPAIGN") || name.startsWith("LocationPhrase") )
 			actionCheckSet.add(name);
 		if (name.contains("OSCARONT")) {
 			name = "Oscar";
@@ -173,7 +179,18 @@ public class XMLtoHTML {
 				e.printStackTrace();
 			}
 		}
-		
+		else if (name.contains("AEROSOL")) {
+			moleculeCheckSet.add(name);
+		}
+		if (name.contains("QUANTITY") || name.contains("UNIT") || name.contains("MATH")) {
+			quantityCheckSet.add(name);
+      }	
+		if (name.startsWith("MODEL") || (name.startsWith("NNP-MODEL") ||  name.startsWith("APPARATUS") ||  name.startsWith("NNP-APPARATUS") || name.contains("PLATFORM") || name.contains("SATELLITE")) {
+			toolsCheckSet.add(name);
+      }	
+		if (name.contains("CITATION")) {
+         name = "Citation";
+      }
 		else if (name.startsWith("Temp") ||name.startsWith("Time") || name.startsWith("Atmosphere"))
 			conditionCheckSet.add(name);
 		else if (name.contains("Phrase") && !name.contains("Location")) phraseCheckSet.add(name);
@@ -201,8 +218,11 @@ public class XMLtoHTML {
 		if (actionCheckSet.size()> 0) checkboxHashMap.put("Actions", actionCheckSet);
 		if (conditionCheckSet.size()> 0) checkboxHashMap.put("Conditions", conditionCheckSet);
 		if (moleculeCheckSet.size()> 0)checkboxHashMap.put("Molecules", moleculeCheckSet);
-		if (phraseCheckSet.size()> 0) checkboxHashMap.put("Phrases", phraseCheckSet);
 		if (oscarOntCheckSet.size()> 0) checkboxHashMap.put("Ontology_Terms", oscarOntCheckSet);
+		if (quantityCheckSet.size()> 0) checkboxHashMap.put("Quantitative_Terms", quantityCheckSet);
+		if (toolsCheckSet.size()> 0) checkboxHashMap.put("Apparatus_or_Tools", toolsCheckSet);
+		if (phraseCheckSet.size()> 0) checkboxHashMap.put("Phrases", phraseCheckSet);
+		if (citationCheckSet.size()> 0) checkboxHashMap.put("Citations", citationCheckSet);
 		return checkboxHashMap;
 	}
 
