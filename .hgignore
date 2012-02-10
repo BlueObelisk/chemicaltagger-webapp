@@ -10,7 +10,7 @@ glob:.deployment
 glob:bin
 glob:*DS_Store*
 glob:.metadata
-glob*.bk
+glob:*.bk
 glob:*output/*
 glob:eclipse.log
 ~                  

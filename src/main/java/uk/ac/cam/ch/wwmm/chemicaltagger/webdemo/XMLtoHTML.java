@@ -182,7 +182,7 @@ public class XMLtoHTML {
 		else if (name.contains("AEROSOL")) {
 			moleculeCheckSet.add(name);
 		}
-		if (name.contains("QUANTITY") || name.contains("UNIT") || name.contains("MATH")) {
+		if (name.contains("QUANTITY") || name.contains("UNITS") || name.contains("MATH")) {
 			quantityCheckSet.add(name);
       }	
 		if (name.startsWith("MODEL") || name.startsWith("NNP-MODEL") ||  name.startsWith("APPARATUS") ||  name.startsWith("NNP-APPARATUS") || name.contains("PLATFORM") || name.contains("SATELLITE")) {

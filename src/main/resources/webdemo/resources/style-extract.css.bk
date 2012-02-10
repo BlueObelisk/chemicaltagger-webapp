@@ -73,6 +73,11 @@ blockquote { color:#666; font-style:normal; }
   color:white;
 	}
 
+.NNP-MODEL{
+  background-color:#FF0000; 
+  color:white;
+	}
+
 .APPARATUS{
   background-color:#4682B4; 
   color:white;
