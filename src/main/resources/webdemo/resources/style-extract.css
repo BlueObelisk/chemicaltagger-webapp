@@ -270,3 +270,11 @@ body { height: 100%; margin: 0px; padding: 0px }
   background-color:#DDA0DD; 
   color:white;
 }
+.UnmatchedPhrase{
+  background-color:#F0E68C; 
+  color:white;
+}
+.ParentheticalPhraseEmpty{
+  background-color:#DDA0DD; 
+  color:white;
+}
