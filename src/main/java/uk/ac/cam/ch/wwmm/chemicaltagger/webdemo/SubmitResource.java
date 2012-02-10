@@ -20,7 +20,6 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistrySentenceParser;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.SentenceParser;
-import uk.ac.cam.ch.wwmm.oscar.Oscar;
 
 /**
  * @author sea36
@@ -28,13 +27,6 @@ import uk.ac.cam.ch.wwmm.oscar.Oscar;
  * @author lh359
  */
 public class SubmitResource extends ServerResource {
-
-	private static class INSTANCE_HOLDER {
-		private static Oscar oscarInstance = new Oscar();
-	}
-	public static Oscar getOscarInstance() {
-		return INSTANCE_HOLDER.oscarInstance;
-	}
 
     @Post("form:txt")
     public Representation doForm(Form form) throws IOException {

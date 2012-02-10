@@ -20,17 +20,9 @@ blockquote { color:#666; font-style:normal; }
 	color:#fff;
 	}
 
-.Oscar{
-	background-color:green; 
-  color:white;
-	}
-
-
-  html { height: 100% }
-  body { height: 100%; margin: 0px; padding: 0px }
-  #map_canvas { height: 100% }
-
-
+html { height: 100% }
+body { height: 100%; margin: 0px; padding: 0px }
+#map_canvas { height: 100% }
 
 .Measurement{
  background-color:#339933; 
@@ -63,7 +55,7 @@ blockquote { color:#666; font-style:normal; }
   color:white;
 	}
 
-.QUANTITY{
+.Quantity{
   background-color:#008080; 
   color:white;
 	}
@@ -78,7 +70,7 @@ blockquote { color:#666; font-style:normal; }
   color:white;
 	}
 
-.APPARATUS{
+.Apparatus{
   background-color:#4682B4; 
   color:white;
 	}
