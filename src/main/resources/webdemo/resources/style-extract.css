@@ -270,3 +270,11 @@ blockquote { color:#666; font-style:normal; }
   background-color:#006666; 
   color:white;
 }
+.TransitionPhrase{
+  background-color:#7B68EE; 
+  color:white;
+}
+.ParentheticalPhrase{
+  background-color:#DDA0DD; 
+  color:white;
+}
