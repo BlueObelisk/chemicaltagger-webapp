@@ -20,9 +20,9 @@ public class ViewXML extends ServerResource {
 	@Post("form:txt")
 	public Representation doForm(Form form) throws IOException {
 		String xml = "<doc>Empty Document</doc>";
-		if (form != null)
+		if (form != null) {
 			xml = form.getFirstValue("xml");
+		}
 		return new StringRepresentation(xml, MediaType.APPLICATION_XML);
-
 	}
 }

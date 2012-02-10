@@ -35,28 +35,21 @@ public class SubmitResource extends ServerResource {
 	public static Oscar getOscarInstance() {
 		return INSTANCE_HOLDER.oscarInstance;
 	}
+
     @Post("form:txt")
     public Representation doForm(Form form) throws IOException {
         String body = form.getFirstValue("body");
         String chemistryType = form.getFirstValue("ChemistryType");
         WebdemoApplication webDemo = (WebdemoApplication) getApplication();
 
-        POSContainer container;
+        SentenceParser parser;
         if (chemistryType.equalsIgnoreCase("Atmospheric")){
-        	container = ACPTagger.getInstance().runTaggers(body);
-        }
-        else {
-        	container = ChemistryPOSTagger.getDefaultInstance().runTaggers(body);
-        }
-
-       	SentenceParser parser;
-        if (chemistryType.equalsIgnoreCase("Atmospheric")){
+        	POSContainer container = ACPTagger.getInstance().runTaggers(body);
         	parser = new ACPSentenceParser(container.getTokenTagTupleAsString());
-        	
-        }        
+        }
         else {
+        	POSContainer container = ChemistryPOSTagger.getDefaultInstance().runTaggers(body);
         	parser = new ChemistrySentenceParser(container.getTokenTagTupleAsString());
-
         }
         parser.parseTags();
         
@@ -69,10 +62,6 @@ public class SubmitResource extends ServerResource {
         model.put("taggedText",Jsoup.parseBodyFragment(xmltoHTML.getTaggedText()).toString());
         model.put("checkBoxes", xmltoHTML.getCheckBoxes());
         model.putAll(xmltoHTML.getGeoInfo());
-        System.out.println(xmltoHTML.getGeoInfo());
         return webDemo.getTemplateRepresentation("tagged.ftl", model, MediaType.TEXT_HTML);
-        
     }
-
-
 }
