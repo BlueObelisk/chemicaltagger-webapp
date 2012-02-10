@@ -176,7 +176,7 @@ public class XMLtoHTML {
 		else if (name.contains("AEROSOL")) {
 			moleculeCheckSet.add(name);
 		}
-		else if (name.contains("QUANTITY") || name.contains("UNITS") || name.contains("MATH")) {
+		else if (name.contains("QUANTITY") || name.equals("UNITS") || name.contains("MATH")) {
 			if (name.equals("QUANTITY")){
 				name = "Quantity";
 			}
