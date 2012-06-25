@@ -191,7 +191,7 @@ public class XMLtoHTML {
 		else if (name.contains("CITATION")) {
 			name = "Citation";
 		}
-		else if (name.startsWith("Temp") ||name.startsWith("Time") || name.startsWith("Atmosphere")){
+		else if (name.startsWith("Temp") || name.startsWith("Time") || name.startsWith("PALAEO") || name.startsWith("Atmosphere")){
 			conditionCheckSet.add(name);
 		}
 		else if (name.contains("Phrase") && !name.contains("Location")) {
