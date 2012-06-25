@@ -258,6 +258,11 @@ body { height: 100%; margin: 0px; padding: 0px }
   color:white;
 }
 
+.PALAEOTIME{
+  background-color:#F08080;
+  color:white;
+}
+
 .AtmospherePhrase{
   background-color:#006666; 
   color:white;
