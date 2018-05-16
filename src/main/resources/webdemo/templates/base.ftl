@@ -32,7 +32,7 @@
 </#if>
    <div id="skip"> <a href="#skip-content" accesskey="2">Skip to content</a> </div>
    <div id="header">
-	   <div id="branding"><a href="http://www.cam.ac.uk/" accesskey="1"><img src="res/global/images/identifier4.gif" alt="University of Cambridge" class="ucam" /></a><a href="http://www-ucc.ch.cam.ac.uk"><img src="res/global/ucc.png" alt="Unilever Centre for Molecular Science Informatics" class="ucc-logo" width="118" height="50" /></a></div>
+	   <div id="branding"><a href="http://www.cam.ac.uk/" accesskey="1"><img src="res/global/images/identifier4.gif" alt="University of Cambridge" class="ucam" /></a><a href="http://www-cmi.ch.cam.ac.uk/"><img src="res/global/ucc.png" alt="Centre for Molecular Informatics" class="ucc-logo" width="118" height="50" /></a></div>
    </div><!--- #header ends -->
    <div id="dept-title">
 
@@ -47,7 +47,7 @@
             <li class="first"><a href="http://www.cam.ac.uk/">University of Cambridge</a></li>
 
             <li><a href="http://www.ch.cam.ac.uk/">Department of Chemistry</a></li>
-            <li><a href="http://www-ucc.ch.cam.ac.uk/">Unilever Centre for Molecular Science Informatics</a></li>
+            <li><a href="http://www-cmi.ch.cam.ac.uk/">Centre for Molecular Informatics</a></li>
           </ul>
          <div>
                    <@chemicalContent/> 
@@ -60,7 +60,7 @@
 					    <dt>Links</dt>
 					    <dd><a href="index.html">Web Interface</a></dd>
 					    <dd><a href="instructions.html">Instructions</a></dd>
-					    <dd><a href="http://apidoc.ch.cam.ac.uk/chemicaltagger/">Documentation</a></dd>
+					    <dd><a href="http://www.javadoc.io/doc/uk.ac.cam.ch.wwmm/chemicalTagger/1.4.0">Documentation</a></dd>
 					    <dd><a href="http://www.jcheminf.com/content/3/1/17">Publication</a></dd>
 					    <dd><a href="https://bitbucket.org/wwmm/chemicaltagger">BitBucket Project</a></dd>
 					    <dd><a href="https://bitbucket.org/wwmm/chemicaltagger/downloads">Downloads</a></dd>
@@ -70,9 +70,9 @@
 	  <!-- end of #content -->
 			
 	  <ul id="site-info">
-	  <li class="copy">&copy; 2009-2012 <a href="mailto:lhawizy[atsign]gmail.com">Lezan Hawizy</a>, David Jessop, <a href="mailto:dl387@cam.ac.uk">Daniel Lowe</a>, Hannah Barjat, Unilever Centre for Molecular Science Informatics</li>
-  	  <li class="link last"><a href="http://www.ch.cam.ac.uk/content/privacy">Privacy</a></li>
-	  <li class="link"><a href="http://www.cam.ac.uk/site/">Accessibility</a></li>
+	  <li class="copy">&copy; 2009-2012 <a href="mailto:lhawizy[atsign]gmail.com">Lezan Hawizy</a>, David Jessop, Daniel Lowe, Hannah Barjat, Centre for Molecular Informatics</li>
+  	  <li class="link last"><a href="http://www.cam.ac.uk/about-this-site/privacy-policy">Privacy</a></li>
+	  <li class="link"><a href="http://www.cam.ac.uk/about-this-site/accessibility">Accessibility</a></li>
   	  </ul>
 
 
