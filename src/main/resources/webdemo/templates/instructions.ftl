@@ -13,22 +13,14 @@ structure the tagged tokens into tree-based phrases which are then converted int
 <p>This online version of ChemicalTagger is a demonstration and can be downloaded from <a href="https://bitbucket.org/wwmm/chemicaltagger-webapp">here</a>.</p> 
 <p>To use ChemicalTagger as a library either:</p>
 
-<p>Download the chemicalTagger-1.3-jar-with-dependencies.jar from the <a href="https://bitbucket.org/wwmm/chemicaltagger/downloads">downloads page</a>.<p> 
+<p>Download the chemicalTagger-1.4-jar-with-dependencies.jar from the <a href="https://bitbucket.org/wwmm/chemicaltagger/downloads">downloads page</a>.<p> 
 
-<p>Or through maven by adding the following to your pom file:</p>
+<p>Or through Maven by adding the following dependency to your pom file:</p>
 
-
-<p>Add our repository:</p>
-  <xmp> <repository>
-            <id>ucc-repo</id>
-            <name>UCC Repository</name>
-            <url>http://maven.ch.cam.ac.uk/m2repo</url>
- </repository> </xmp>     
-      <p>  Then add the following under dependencies:</p>
   <xmp> <dependency>
-            <groupId>uk.ac.cam.ch</groupId>
+            <groupId>uk.ac.cam.ch.wwmm</groupId>
             <artifactId>chemicalTagger</artifactId>
-            <version>1.3</version>
+            <version>1.4.0</version>
  </dependency> </xmp> 
   
  <p>The latest version of the code can be downloaded from our <a href="https://bitbucket.org/wwmm/chemicaltagger">bitbucket repository</a>.</p>
