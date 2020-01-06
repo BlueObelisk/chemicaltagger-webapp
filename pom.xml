@@ -18,11 +18,6 @@
 
 	<repositories>
 		<repository>
-			<id>ucc-repo</id>
-			<name>UCC Repository</name>
-			<url>http://maven.ch.cam.ac.uk/m2repo</url>
-		</repository>
-		<repository>
 			<id>maven-restlet</id>
 			<name>Public online Restlet repository</name>
 			<url>http://maven.restlet.org</url>
