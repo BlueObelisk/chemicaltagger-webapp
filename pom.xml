@@ -40,14 +40,6 @@
 	</build>
 
 	<dependencies>
-		<!-- UCC projects -->
-		<dependency>
-			<groupId>ACPGeo</groupId>
-			<artifactId>ACPGeo</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-		</dependency>
-
-		<!-- non-UCC projects -->
 		<dependency>
 			<groupId>org.restlet.jee</groupId>
 			<artifactId>org.restlet</artifactId>
