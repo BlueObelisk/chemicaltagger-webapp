@@ -18,6 +18,7 @@
 		<jsoup.version>1.8.3</jsoup.version>
 		<xom.version>1.3.2</xom.version>
 		<chemicaltagger.version>1.4.0</chemicaltagger.version>
+		<acpgeo.version>0.0.2-SNAPSHOT</acpgeo.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<commons-io.version>2.4</commons-io.version>
 	</properties>
@@ -52,6 +53,11 @@
 			<artifactId>chemicalTagger</artifactId>
 			<version>${chemicaltagger.version}</version>
 		</dependency>
+                <dependency>
+                        <groupId>uk.ac.cam.ch.wwmm</groupId>
+                        <artifactId>acpgeo</artifactId>
+                        <version>${acpgeo.version}</version>
+                </dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
