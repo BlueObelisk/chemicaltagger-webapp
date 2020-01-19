@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>uk.ac.cam.ch.wwmm</groupId>
 		<artifactId>wwmm-parent</artifactId>
-		<version>6</version>
+		<version>7</version>
 	</parent>
 
 	<groupId>chemicalTagger</groupId>
