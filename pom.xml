@@ -1,6 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -32,6 +32,72 @@
 		</repository>
 	</repositories>
 
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/blueobelisk/chemicaltagger-webapp</url>
+		<connection>scm:git:https://github.com/blueobelisk/chemicaltagger-webapp</connection>
+		<developerConnection>scm:git:https://github.com/blueobelisk/chemicaltagger-webappa</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>lh359</id>
+			<name>Lezan Hawizy</name>
+			<url>http://bitbucket.org/lh359</url>
+			<organization>University of Cambridge</organization>
+			<organizationUrl>http://www.cam.ac.uk</organizationUrl>
+			<roles>
+				<role>Lead Programmer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>hrb29</id>
+			<name> Hannah Barjat</name>
+			<organization>University of Cambridge</organization>
+			<organizationUrl>http://www.cam.ac.uk</organizationUrl>
+
+		</developer>
+		<developer>
+			<id>dmj30</id>
+			<name>David Jessop</name>
+			<url>http://bitbucket.org/dmj30</url>
+			<organization>University of Cambridge</organization>
+			<organizationUrl>http://www.cam.ac.uk</organizationUrl>
+			<roles>
+				<role>Programmer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>sea36</id>
+			<name>Sam Adams</name>
+			<url>https://github.com/sea36/</url>
+			<organization>University of Cambridge</organization>
+			<organizationUrl>http://www.cam.ac.uk</organizationUrl>
+			<roles>
+				<role>Programmer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>mjw99</id>
+			<name>Mark J. Williamson</name>
+			<email>mjw@mjw.name</email>
+			<url>http://www.ch.cam.ac.uk/person/mw529</url>
+			<organization>The Unilever Centre for Molecular Informatics </organization>
+			<organizationUrl>http://www-ucc.ch.cam.ac.uk/</organizationUrl>
+			<roles>
+				<role>Maveniser</role>
+			</roles>
+		</developer>
+	</developers>
+
+
 	<build>
 		<plugins>
 			<plugin>
@@ -53,11 +119,11 @@
 			<artifactId>chemicalTagger</artifactId>
 			<version>${chemicaltagger.version}</version>
 		</dependency>
-                <dependency>
-                        <groupId>uk.ac.cam.ch.wwmm</groupId>
-                        <artifactId>acpgeo</artifactId>
-                        <version>${acpgeo.version}</version>
-                </dependency>
+		<dependency>
+			<groupId>uk.ac.cam.ch.wwmm</groupId>
+			<artifactId>acpgeo</artifactId>
+			<version>${acpgeo.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
