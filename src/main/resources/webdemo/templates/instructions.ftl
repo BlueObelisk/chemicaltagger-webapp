@@ -10,20 +10,20 @@ structure the tagged tokens into tree-based phrases which are then converted int
 <p>ChemicalTagger is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License Version 2.0 </a> </p>
 <p>ChemicalTagger is made available in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. </p>
 <h2>Installation Instructions</h2>
-<p>This online version of ChemicalTagger is a demonstration and can be downloaded from <a href="https://bitbucket.org/wwmm/chemicaltagger-webapp">here</a>.</p> 
+<p>This online version of ChemicalTagger is a demonstration and can be downloaded from <a href="https://github.com/BlueObelisk/chemicaltagger">here</a>.</p> 
 <p>To use ChemicalTagger as a library either:</p>
 
-<p>Download the chemicalTagger-1.4-jar-with-dependencies.jar from the <a href="https://bitbucket.org/wwmm/chemicaltagger/downloads">downloads page</a>.<p> 
+<p>Download the chemicalTagger jar from the <a href="https://search.maven.org/artifact/uk.ac.cam.ch.wwmm/chemicalTagger">downloads page</a>.<p> 
 
 <p>Or through Maven by adding the following dependency to your pom file:</p>
 
   <xmp> <dependency>
             <groupId>uk.ac.cam.ch.wwmm</groupId>
             <artifactId>chemicalTagger</artifactId>
-            <version>1.4.0</version>
+            <version>1.5.0</version>
  </dependency> </xmp> 
   
- <p>The latest version of the code can be downloaded from our <a href="https://bitbucket.org/wwmm/chemicaltagger">bitbucket repository</a>.</p>
+ <p>The latest version of the code can be downloaded from our <a href="https://github.com/BlueObelisk/chemicaltagger">github repository</a>.</p>
   
  <h2>ChemicalTagger Components</h2>
   

@@ -60,7 +60,7 @@
 					    <dt>Links</dt>
 					    <dd><a href="index.html">Web Interface</a></dd>
 					    <dd><a href="instructions.html">Instructions</a></dd>
-					    <dd><a href="http://www.javadoc.io/doc/uk.ac.cam.ch.wwmm/chemicalTagger/1.4.0">Documentation</a></dd>
+					    <dd><a href="http://www.javadoc.io/doc/uk.ac.cam.ch.wwmm/chemicalTagger/1.5.0">Documentation</a></dd>
 					    <dd><a href="http://www.jcheminf.com/content/3/1/17">Publication</a></dd>
 					    <dd><a href="https://bitbucket.org/wwmm/chemicaltagger">BitBucket Project</a></dd>
 					    <dd><a href="https://bitbucket.org/wwmm/chemicaltagger/downloads">Downloads</a></dd>
