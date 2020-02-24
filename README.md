@@ -15,6 +15,7 @@ This will compile and install the ChemicalTagger-webapp on the Debian based OS.
 2) Clone and build WAR file
 ```bash
     git clone https://github.com/BlueObelisk/chemicaltagger-webapp
+    cd chemicaltagger-webapp
     mvn clean package
 ```
    Observe output WAR: ./target/chemicalTagger-webapp-1.1-SNAPSHOT.war
