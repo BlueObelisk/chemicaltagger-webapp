@@ -32,7 +32,7 @@
 </#if>
    <div id="skip"> <a href="#skip-content" accesskey="2">Skip to content</a> </div>
    <div id="header">
-	   <div id="branding"><a href="http://www.cam.ac.uk/" accesskey="1"><img src="res/global/images/identifier4.gif" alt="University of Cambridge" class="ucam" /></a><a href="http://www-cmi.ch.cam.ac.uk/"><img src="res/global/ucc.png" alt="Centre for Molecular Informatics" class="ucc-logo" width="118" height="50" /></a></div>
+	   <div id="branding"><a href="http://www.cam.ac.uk/" accesskey="1"><img src="res/global/images/identifier4.gif" alt="University of Cambridge" class="ucam" /></a></div>
    </div><!--- #header ends -->
    <div id="dept-title">
 
