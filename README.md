@@ -1,5 +1,5 @@
 # ChemicalTagger-webapp Overview
-[![Build Status](https://travis-ci.org/BlueObelisk/chemicalTagger-webapp.svg?branch=master)](https://travis-ci.org/BlueObelisk/chemicalTagger-webapp) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/uk.ac.cam.ch.wwmm/chemicalTagger-webapp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.ac.cam.ch.wwmm/chemicalTagger-webapp)
+![Build Status](https://github.com/BlueObelisk/chemicalTagger-webapp/workflows/Java%20CI%20with%20Maven/badge.svg) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/uk.ac.cam.ch.wwmm/chemicalTagger-webapp/badge.svg)](https://maven-badges.herokuapp.com/maven-central/uk.ac.cam.ch.wwmm/chemicalTagger-webapp)
 
 
 This is the webapp component of the [ChemicalTagger](https://github.com/BlueObelisk/chemicaltagger) tool and is the web based demo running [here](http://chemicaltagger.ch.cam.ac.uk/).
