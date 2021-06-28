@@ -21,6 +21,7 @@
 		<acpgeo.version>0.0.2</acpgeo.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<commons-io.version>2.10.0</commons-io.version>
+		<restlet.version>2.0.15</restlet.version>
 	</properties>
 	<version>1.1-SNAPSHOT</version>
 
@@ -147,17 +148,17 @@
 		<dependency>
 			<groupId>org.restlet.jee</groupId>
 			<artifactId>org.restlet</artifactId>
-			<version>2.0.15</version>
+			<version>${restlet.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.restlet.jee</groupId>
 			<artifactId>org.restlet.ext.servlet</artifactId>
-			<version>2.0.15</version>
+			<version>${restlet.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.restlet.jee</groupId>
 			<artifactId>org.restlet.ext.freemarker</artifactId>
-			<version>2.0.15</version>
+			<version>${restlet.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
