@@ -20,7 +20,7 @@
 		<chemicaltagger.version>1.5.0</chemicaltagger.version>
 		<acpgeo.version>0.0.2</acpgeo.version>
 		<commons-lang.version>2.6</commons-lang.version>
-		<commons-io.version>2.10.0</commons-io.version>
+		<commons-io.version>2.11.0</commons-io.version>
 		<restlet.version>2.4.3</restlet.version>
 	</properties>
 	<version>1.1-SNAPSHOT</version>
