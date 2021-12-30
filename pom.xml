@@ -16,7 +16,7 @@
 	<name>chemicalTagger webapp</name>
 	<properties>
 		<xom.version>1.3.7</xom.version>
-		<chemicaltagger.version>1.6.1</chemicaltagger.version>
+		<chemicaltagger.version>1.6.2</chemicaltagger.version>
 		<acpgeo.version>0.0.2</acpgeo.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<commons-io.version>2.11.0</commons-io.version>
